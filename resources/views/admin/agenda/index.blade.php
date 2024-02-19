@@ -72,6 +72,7 @@
         
     </tbody>
 </table>
+<<<<<<< HEAD
 <style>
     .status {
         background-color: #fa4b6e;
@@ -109,4 +110,7 @@
         background-color: #f5f5f5;
     }
 </style>
+=======
+
+>>>>>>> 5914aa88cc5bd5852d0e8dd617336ef6f862391b
 @endsection
