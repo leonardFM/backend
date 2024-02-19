@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Announcement</strong></h2>
+    <h2><strong>Layanan Warga</strong></h2>
     <hr>
     <table>
     <thead>

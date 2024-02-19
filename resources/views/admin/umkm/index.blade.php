@@ -1,8 +1,9 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Announcement</strong></h2>
+    <h2><strong>Umkm </strong></h2>
     <hr>
+    <a href="" class="btn btn-primary mb-3">Tambah Baru</a>
     <table>
     <thead>
         <tr>
@@ -15,7 +16,7 @@
             <td>
                 <div>
                     <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
+                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
                     <br>
                     <span class="status">DRAFT | Publish : 15 Februari 2024</span>
 
@@ -29,7 +30,7 @@
             <td>
                 <div>
                     <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
+                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
                     <br>
                     <span class="status">DRAFT | Publish : 15 Februari 2024</span>
 
@@ -43,7 +44,7 @@
             <td>
                 <div>
                     <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
+                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
                     <br>
                     <span class="status">DRAFT | Publish : 15 Februari 2024</span>
 
@@ -57,7 +58,7 @@
             <td>
                 <div>
                     <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
+                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
                     <br>
                     <span class="status">DRAFT | Publish : 15 Februari 2024</span>
 
@@ -71,4 +72,5 @@
         
     </tbody>
 </table>
+
 @endsection
