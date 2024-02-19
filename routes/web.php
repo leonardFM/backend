@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\UmkmController;
+
 
 
 
@@ -34,3 +36,5 @@ Route::get('/announcement', [AnnouncementController::class, 'index'])->name('ann
 Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
 Route::get('/finance', [FinanceController::class, 'index'])->name('finance');
 Route::get('/report', [FinanceController::class, 'index'])->name('report');
+
+Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm');
