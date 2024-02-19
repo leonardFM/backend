@@ -60,8 +60,6 @@ class AuthController extends Controller
         return redirect('/login');
 
     }
-<<<<<<< HEAD
-=======
 
     public function logout(Request $request): RedirectResponse
     {
@@ -73,5 +71,4 @@ class AuthController extends Controller
     
         return redirect('/');
     }
->>>>>>> 5914aa88cc5bd5852d0e8dd617336ef6f862391b
 }

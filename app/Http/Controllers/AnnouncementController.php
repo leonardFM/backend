@@ -10,8 +10,6 @@ class AnnouncementController extends Controller
     {
         return view('admin.announcement.index');
     }
-<<<<<<< HEAD
-=======
 
     public function create(Request $request)
     {
@@ -43,5 +41,4 @@ class AnnouncementController extends Controller
     {
         return view('admin.announcement.detail');
     }
->>>>>>> 5914aa88cc5bd5852d0e8dd617336ef6f862391b
 }
