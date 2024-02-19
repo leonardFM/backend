@@ -38,3 +38,4 @@ Route::get('/finance', [FinanceController::class, 'index'])->name('finance');
 Route::get('/report', [FinanceController::class, 'index'])->name('report');
 
 Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm');
+Route::post('/umkm', [UmkmController::class, 'index'])->name('store_umkm');
