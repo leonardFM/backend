@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Agenda </strong></h2>
+    <h2><strong>Umkm </strong></h2>
     <hr>
     <a href="" class="btn btn-primary mb-3">Tambah Baru</a>
     <table>
@@ -72,45 +72,5 @@
         
     </tbody>
 </table>
-<<<<<<< HEAD
-<style>
-    .status {
-        background-color: #fa4b6e;
-        padding: 4px;
-        color: white;
-        font-size: 10px;
-        border-radius:5px;
-    }
-    .status {
-        background-color: #ebe6e7;
-        padding: 4px;
-        color: black;
-        font-size: 10px;
-        border-radius:5px;
-    }
-    .action {
-        text-align: right;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
 
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #f5f5f5;
-    }
-</style>
-=======
-
->>>>>>> a86a94dad4243fe25902baec8cb8c145234990dc
 @endsection
