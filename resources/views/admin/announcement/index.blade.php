@@ -7,68 +7,29 @@
     <thead>
         <tr>
             <th style="width: 65%;">Title</th>
+            <th>status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
+        @foreach($announ as $a)
         <tr>
             <td>
                 <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
+                    <p>{{ $a->title }}</p>
+                    <span class="status">{{ ($a->status  == false) ? 'DRAFT' : 'PUBLISHED' }} | Date : {{ $a->created_at }}</span>
+                    <small class="status">{{ $a->content_type }}</small>  <small class="status">{{$a->kategori}}</small> <small class="status">By {{ $a->user->name }}</small>
 
                 </div>
+            </td>
+            <td>
+                <a href="" class="btn btn-sm btn-primary"><i class="fas fa-fw fa-cog"></i></a>
             </td>
             <td>
                 <a href="" class="btn btn-primary">detail</a>
             </td>
         </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        
-        
+        @endforeach
     </tbody>
 </table>
 @endsection

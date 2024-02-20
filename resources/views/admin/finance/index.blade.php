@@ -1,78 +1,32 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Laporan Keuangan</strong></h2>
+    <h2><strong>Announcement</strong></h2>
     <hr>
-    <div class="row">
-        <div class="col-8">
-        <table>
-                <thead>
-                    <tr>
-                        <th style="width: 65%;">Title</th>
-                        <th style="width: 10%;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div>
-                                <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                                <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                                <br>
-                                <span class="status">DRAFT | Publish : 15 Februari 2024</span>
+    <table>
+    <thead>
+        <tr>
+            <th style="width: 65%;">Title</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($finance as $a)
+        <tr>
+            <td>
+                <div>
+                    <h4>{{ $a->title }}</h4>
+                    <br>
+                    <h2> Rp.{{ $a->nominal }}</h2> 
+                    <span class="status">{{ $a->status }} | Tanggal : {{ $a->created_at }}</span> 
 
-                            </div>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary">detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                                <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                                <br>
-                                <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                            </div>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary">detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                                <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                                <br>
-                                <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                            </div>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary">detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                                <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                                <br>
-                                <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                            </div>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-primary">detail</a>
-                        </td>
-                    </tr>
-                    
-                    
-                </tbody>
-            </table>
-        </div>
-    </div>
+                </div>
+            </td>
+            <td>
+                <a href="" class="btn btn-primary">detail</a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 @endsection

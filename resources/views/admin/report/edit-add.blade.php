@@ -10,7 +10,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('report_store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
@@ -22,11 +22,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="judul3" class="form-label">Kategori Pengumuman</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="kategori" aria-label="Default select example">
                                 <option selected>pilih kategori</option>
-                                <option value="1">Lomba</option>
-                                <option value="2">Berita Duka</option>
-                                <option value="3">kategori ketiga</option>
+                                <option value="KENYAMANAN">Kenyamanan</option>
+                                <option value="PERBAIKAN">Perbaikan</option>
                             </select>
                         </div>
                         <br>
@@ -35,22 +34,21 @@
                         <p style="background-color: #000; color:#fff; padding: 10px;">Admin Only</p>
                         <hr style="border-top: 3px solid black;">
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="judul3" class="form-label">Assign to</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" name="" aria-label="Default select example">
                                 <option selected>pilih hero</option>
                                 <option value="1">Pak anies (tukang)</option>
-                                <option value="2">Pak bayu (linmas)</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="mb-3">
                             <label for="judul3" class="form-label">Status Laporan</label>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>pilih kategori</option>
-                                <option value="1">Menunggu</option>
-                                <option value="2">Dikerjakan</option>
-                                <option value="3">Selesai</option>
+                                <option value="DITERIMA">Diterima</option>
+                                <option value="DIKERJAKAN">Dikerjakan</option>
+                                <option value="SELESAI">Selesai</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
