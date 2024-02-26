@@ -7,7 +7,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('announcement_store') }}" method="POST">
@@ -18,8 +18,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="content" class="form-label">Content</label>
-                            <textarea class="form-control tinymce-editor" name="content"></textarea>
+                            <!-- tinymce -->
+                            <textarea name="content"></textarea>
                         </div>
+                        
                         <div class="mb-3">
                             <label for="kategori" class="form-label">Kategori Pengumuman</label>
                             <select class="form-select" name="kategori" aria-label="Default select example">
@@ -28,6 +30,7 @@
                                 <option value="BERITA DUKA">Berita Duka</option>
                             </select>
                         </div>
+
                         <div class="mb-3">
                             <label for="type" class="form-label">Tipe Pengumuman</label>
                             <select class="form-select" name="content_type" aria-label="Default select example">
@@ -35,6 +38,11 @@
                                 <option value="ARTICLE">ARTICLE</option>
                                 <option value="VIDEO">VIDEO</option>
                             </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image">Image</label>
+                            <div id="fm" style="height: 400px;" name="image"></div>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>

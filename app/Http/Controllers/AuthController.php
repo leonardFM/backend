@@ -57,7 +57,7 @@ class AuthController extends Controller
             'password' => $request->password
         ]);
 
-        return redirect('/login');
+        return redirect('/');
 
     }
 
