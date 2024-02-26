@@ -1,4 +1,6 @@
 import './bootstrap';
+<<<<<<< HEAD
+=======
 import tinymce from 'tinymce/tinymce';
 
 // Pilihan konfigurasi sesuai kebutuhan Anda
@@ -8,3 +10,4 @@ tinymce.init({
     toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
     menubar: false,
 });
+>>>>>>> a86a94dad4243fe25902baec8cb8c145234990dc
