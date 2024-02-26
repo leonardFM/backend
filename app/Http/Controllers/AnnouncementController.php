@@ -53,4 +53,15 @@ class AnnouncementController extends Controller
     {
         return view('admin.announcement.detail');
     }
+
+    public function publish($id)
+    {
+        $content = Announcement::find($id);
+        $status = $content->status;
+        $status = $status ? false : true;
+        $content->status = $status;
+        $content->save();
+
+        return redirect()->route('announcement');
+    }
 }

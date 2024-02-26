@@ -41,7 +41,7 @@ Route::post('/register', [AuthController::class, 'store'])->name('register');
 
 // DASHBOARD
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // ANNOUNCEMENT
     Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
@@ -50,14 +50,16 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/announcement_store', [AnnouncementController::class, 'store'])->name('announcement_store');
     Route::get('/announcement_update', [AnnouncementController::class, 'edit'])->name('announcement_update');
     Route::put('/announcement_update', [AnnouncementController::class, 'udpate'])->name('announcement_create');
+    Route::get('/announcement_publish/{id}', [AnnouncementController::class, 'publish'])->name('announcement_publish');
 
     // AGENDA
     Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
     Route::get('/agenda/{id}', [AgendaController::class, 'read'])->name('agenda_detail');
     Route::get('/agenda_create', [AgendaController::class, 'create'])->name('agenda_create');
-    Route::post('/agenda_create', [AgendaController::class, 'store'])->name('agenda_create');
+    Route::post('/agenda_store', [AgendaController::class, 'store'])->name('agenda_store');
     Route::get('/agenda_udpate', [AgendaController::class, 'edit'])->name('agenda_udpate');
     Route::put('/agenda_udpate', [AgendaController::class, 'update'])->name('agenda_udpate');
+    Route::get('/agenda_publish/{id}', [AgendaController::class, 'publish'])->name('agenda_publish');
 
     // FINANCE
     Route::get('/finance', [FinanceController::class, 'index'])->name('finance');
@@ -80,6 +82,7 @@ Route::middleware(['auth'])->group(function () {
 
     // RESIDENT
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
+    Route::get('/resident/{id}', [ResidentController::class, 'detail'])->name('resident_detail');
 
     // LAYANAN WARGA
     Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');

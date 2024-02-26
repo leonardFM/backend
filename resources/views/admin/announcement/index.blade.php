@@ -3,12 +3,12 @@
 @section('content')
     <h2><strong>Announcement</strong></h2>
     <hr>
-    <table>
+    <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th style="width: 65%;">Title</th>
+            <th style="width: 70%;">Title</th>
             <th>status</th>
-            <th>Action</th>
+            <th class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -23,13 +23,17 @@
                 </div>
             </td>
             <td>
-                <a href="" class="btn btn-sm btn-primary"><i class="fas fa-fw fa-cog"></i></a>
+                <a href="{{ route('announcement_publish', ['id' => $a->id]) }}" class="btn btn-sm btn-primary"><i class="fas fa-fw fa-cog"></i></a>
             </td>
             <td>
                 <a href="" class="btn btn-primary">detail</a>
+                <a href="" class="btn btn-primary">edit</a>
+                <a href="" class="btn btn-primary">delete</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+
+
 @endsection

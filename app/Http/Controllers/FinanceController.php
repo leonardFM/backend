@@ -10,7 +10,14 @@ class FinanceController extends Controller
     public function index(Request $request)
     {
         $finance = Finance::take(10)->get();
-        return view('admin.finance.index', ['finance' => $finance]);
+        $masuk = Finance::where('status', 'MASUK')->get();
+        $totalMasuk = $masuk->sum('nominal');
+        $keluar = Finance::where('status', 'KELUAR')->get();
+        $totalKeluar = $keluar->sum('nominal');
+
+        $total = $totalMasuk - $totalKeluar;
+        $totalFormatted = number_format($total, 2, '.', ',');
+        return view('admin.finance.index', ['finance' => $finance, 'total' => $totalFormatted]);
     }
 
     public function create(Request $request)

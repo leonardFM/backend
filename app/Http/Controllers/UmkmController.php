@@ -9,7 +9,8 @@ class UmkmController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.umkm.index');
+        $umkm = Umkm::take(5)->get();
+        return view('admin.umkm.index', ['umkm' => $umkm]);
     }
 
     public function create(Request $request)
