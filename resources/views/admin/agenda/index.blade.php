@@ -41,7 +41,6 @@
         @endforeach
     </tbody>
 </table>
-<<<<<<< HEAD
 <style>
     .status {
         background-color: #fa4b6e;
@@ -79,7 +78,4 @@
         background-color: #f5f5f5;
     }
 </style>
-=======
-
->>>>>>> a86a94dad4243fe25902baec8cb8c145234990dc
 @endsection
