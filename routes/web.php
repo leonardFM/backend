@@ -83,6 +83,8 @@ Route::middleware(['auth'])->group(function () {
     // RESIDENT
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
     Route::get('/resident/{id}', [ResidentController::class, 'detail'])->name('resident_detail');
+    Route::get('/resident/edit/{id}', [ResidentController::class, 'edit'])->name('resident_edit');
+    Route::post('/resident/edit/{id}', [ResidentController::class, 'update'])->name('resident_update');
 
     // LAYANAN WARGA
     Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');

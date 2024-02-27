@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-4">
-            <p class="highlight text-center">jumlah kepala keluarga : 23 KK</p>
+            <p class="highlight text-center">jumlah kepala keluarga : {{ $count }} KK</p>
         </div>
         <div class="col-4">
             <p class="highlight text-center">jumlah warga terdaftar : 80 Orang</p>
@@ -15,6 +15,7 @@
             <p class="highlight text-center">jumlah warga keseluruhan : 129 Orang</p>
         </div>
     </div>
+    <p><strong>Daftar Kepala Keluarga</strong></p>
     <table>
     <thead>
         <tr>
@@ -28,15 +29,15 @@
             <td>
                 <div>
                     <p>{{ $u->name }}</p>
-                    <small class="status">jumlah Anggota Keluarga: 5 ORANG </small>  <small class="status">NO RUMAH : 36</small>
+                    <small class="status">jumlah Anggota Keluarga: 5 ORANG </small>  <small class="status">NO RUMAH : {{ $u->no_rumah ?? '-' }}</small>
                     <br>
-                    <span class="status">NO Telepon : 021 - 12323123</span> | <span class="status">NO Telepon Rumah : 021 - 12323123</span> 
+                    <span class="status">NO Telepon : {{ $u->telepon ?? '-'  }}</span> | <span class="status">NO Telepon Rumah : {{ $u->telepon_rumah ?? '-' }}</span> 
 
                 </div>
             </td>
             <td>
                 <a href="{{ route('resident_detail', ['id' => $u->id ]) }}" class="btn btn-primary">detail</a>
-                <a href="" class="btn btn-primary">edit</a>
+                <a href="{{ route('resident_edit', ['id' => $u->id ]) }}" class="btn btn-primary">edit</a>
                 <a href="" class="btn btn-primary">hapus</a>
             </td>
         </tr>
