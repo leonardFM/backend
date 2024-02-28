@@ -21,6 +21,7 @@ class AnnouncementController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $a = new Announcement;
         $a->title = $request->title;
         $a->kategori = $request->kategori;
