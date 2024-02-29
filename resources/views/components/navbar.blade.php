@@ -51,11 +51,7 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-<<<<<<< HEAD
-                                <a class="dropdown-item" href="#">
-=======
                                 <a class="dropdown-item" href="{{ route('logout') }}">
->>>>>>> 5914aa88cc5bd5852d0e8dd617336ef6f862391b
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

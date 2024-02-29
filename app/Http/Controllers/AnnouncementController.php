@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnnouncementController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.announcement.index');
+        $announ = Announcement::take(5)->get();
+        return view('admin.announcement.index', ['announ' => $announ ]);
     }
 
     public function create(Request $request)
@@ -18,7 +21,16 @@ class AnnouncementController extends Controller
 
     public function store(Request $request)
     {
-        return view('admin.announcement.edit-add');
+        $a = new Announcement;
+        $a->title = $request->title;
+        $a->kategori = $request->kategori;
+        $a->content = $request->content;
+        $a->image = 'ini path image';
+        $a->user_id = Auth::id();
+        $a->content_type = $request->content_type;
+        $a->save();
+
+        return redirect()->route('announcement')->with('success', 'Data berhasil disimpan.');
     }
 
     public function edit(Request $request, $id)
@@ -37,8 +49,20 @@ class AnnouncementController extends Controller
         return view('admin.announcement.edit-add');
     }
 
-    public function read(Request $request)
+    public function read(Request $request, $id)
     {
-        return view('admin.announcement.detail');
+        $detail = Announcement::find($id);
+        return view('admin.announcement.detail', ['detail' => $detail]);
+    }
+
+    public function publish($id)
+    {
+        $content = Announcement::find($id);
+        $status = $content->status;
+        $status = $status ? false : true;
+        $content->status = $status;
+        $content->save();
+
+        return redirect()->route('announcement');
     }
 }

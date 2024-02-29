@@ -1,8 +1,21 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Resident</strong></h2>
+    <h2><strong>Data warga</strong></h2>
     <hr>
+
+    <div class="row">
+        <div class="col-4">
+            <p class="highlight text-center">jumlah kepala keluarga : {{ $count }} KK</p>
+        </div>
+        <div class="col-4">
+            <p class="highlight text-center">jumlah warga terdaftar : 80 Orang</p>
+        </div>
+        <div class="col-4">
+            <p class="highlight text-center">jumlah warga keseluruhan : 129 Orang</p>
+        </div>
+    </div>
+    <p><strong>Daftar Kepala Keluarga</strong></p>
     <table>
     <thead>
         <tr>
@@ -11,64 +24,35 @@
         </tr>
     </thead>
     <tbody>
+        @foreach($user as $u)
         <tr>
             <td>
                 <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
+                    <p>{{ $u->name }}</p>
+                    <small class="status">jumlah Anggota Keluarga: 5 ORANG </small>  <small class="status">NO RUMAH : {{ $u->no_rumah ?? '-' }}</small>
                     <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
+                    <span class="status">NO Telepon : {{ $u->telepon ?? '-'  }}</span> | <span class="status">NO Telepon Rumah : {{ $u->telepon_rumah ?? '-' }}</span> 
 
                 </div>
             </td>
             <td>
-                <a href="" class="btn btn-primary">detail</a>
+                <a href="{{ route('resident_detail', ['id' => $u->id ]) }}" class="btn btn-primary">detail</a>
+                <a href="{{ route('resident_edit', ['id' => $u->id ]) }}" class="btn btn-primary">edit</a>
+                <a href="" class="btn btn-primary">hapus</a>
             </td>
         </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status">PENGUMUMAN</small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        
-        
+        @endforeach
     </tbody>
 </table>
+
+<style>
+    .highlight {
+        color:white;
+        background-color: black; /* Warna latar belakang yang Anda inginkan */
+        padding: 5px; /* Padding untuk membuat teks terlihat lebih baik */
+        border-radius: 5px; /* Untuk memberikan sudut yang sedikit melengkung */
+    }
+</style>
+
+
 @endsection

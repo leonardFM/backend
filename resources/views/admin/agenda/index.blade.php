@@ -1,78 +1,46 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Agenda </strong></h2>
+<div class="row align-items-center">
+    <div class="col-md-6">
+        <h2><strong>Agenda </strong></h2>
+    </div>
+    <div class="col-md-6 text-md-end">
+        <a href="" class="btn btn-primary mb-3">Tambah Baru</a>
+    </div>
+</div>
     <hr>
-    <a href="" class="btn btn-primary mb-3">Tambah Baru</a>
     <table>
     <thead>
         <tr>
-            <th style="width: 65%;">Title</th>
-            <th>Action</th>
+            <th style="width: 70%;">Title</th>
+            <th>status</th>
+            <th class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
+        @foreach($agenda as $a)
         <tr>
             <td>
                 <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
+                    <p>{{ $a->title }}</p>
+                    <span class="status">{{ ($a->status  == false) ? 'DRAFT' : 'PUBLISHED' }} | Date : {{ $a->created_at }}</span>
+                    <small class="status">{{ $a->content_type }}</small>  <small class="status">{{$a->kategori}}</small> <small class="status">By {{ $a->user->name }}</small>
 
                 </div>
             </td>
             <td>
-                <a href="" class="btn btn-primary">detail</a>
+                <a href="{{ route('agenda_publish', ['id' => $a->id]) }}" class="btn btn-sm btn-primary"><i class="fas fa-fw fa-cog"></i></a>
+            </td>
+            <td>
+                <a href="{{ route('agenda_detail', ['id' => $a->id]) }}" class="btn btn-primary">detail</a>
+                <a href="" class="btn btn-primary">edit</a>
+                <a href="" class="btn btn-primary">delete</a>
             </td>
         </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <p>script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again</p>
-                    <small class="status"><strong>PENGUMUMAN</strong></small>  <small class="status">BERITA DUKA | Minggu, 15 Februari 2024</small> <small class="status">By Leonard Freds Morin</small>
-                    <br>
-                    <span class="status">DRAFT | Publish : 15 Februari 2024</span>
-
-                </div>
-            </td>
-            <td>
-                <a href="" class="btn btn-primary">detail</a>
-            </td>
-        </tr>
-        
-        
+        @endforeach
     </tbody>
 </table>
-<<<<<<< HEAD
 <style>
     .status {
         background-color: #fa4b6e;
@@ -110,7 +78,4 @@
         background-color: #f5f5f5;
     }
 </style>
-=======
-
->>>>>>> 5914aa88cc5bd5852d0e8dd617336ef6f862391b
 @endsection

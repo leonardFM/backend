@@ -2,22 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
     public function index(Request $request)
     {
-        return view('admin.report.index');
+        $report = Report::take(10)->get();
+        return view('admin.report.index', ['report' => $report]);
     }
 
-    public function edit(Request $request)
+    public function create(Request $request)
     {
         return view('admin.report.edit-add');
     }
 
-    public function update(Request $request)
+    public function store(Request $request)
     {
-        return view('admin.report.index');
+        $a = new Report;
+        $a->title = $request->title;
+        $a->content = $request->content;
+        $a->kategori = $request->kategori;
+        $a->user_id = Auth::id();
+        $a->status = 'MASUK';
+        $a->save();
+
+        return redirect()->route('report')->with('success', 'Data berhasil disimpan.');
     }
 }

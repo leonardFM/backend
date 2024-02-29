@@ -41,45 +41,50 @@ Route::post('/register', [AuthController::class, 'store'])->name('register');
 
 // DASHBOARD
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // ANNOUNCEMENT
     Route::get('/announcement', [AnnouncementController::class, 'index'])->name('announcement');
     Route::get('/announcement/{id}', [AnnouncementController::class, 'read'])->name('announcement_detail');
     Route::get('/announcement_create', [AnnouncementController::class, 'create'])->name('announcement_create');
-    Route::post('/announcement_create', [AnnouncementController::class, 'store'])->name('announcement_create');
+    Route::post('/announcement_store', [AnnouncementController::class, 'store'])->name('announcement_store');
     Route::get('/announcement_update', [AnnouncementController::class, 'edit'])->name('announcement_update');
     Route::put('/announcement_update', [AnnouncementController::class, 'udpate'])->name('announcement_create');
+    Route::get('/announcement_publish/{id}', [AnnouncementController::class, 'publish'])->name('announcement_publish');
 
     // AGENDA
     Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
     Route::get('/agenda/{id}', [AgendaController::class, 'read'])->name('agenda_detail');
     Route::get('/agenda_create', [AgendaController::class, 'create'])->name('agenda_create');
-    Route::post('/agenda_create', [AgendaController::class, 'store'])->name('agenda_create');
+    Route::post('/agenda_store', [AgendaController::class, 'store'])->name('agenda_store');
     Route::get('/agenda_udpate', [AgendaController::class, 'edit'])->name('agenda_udpate');
     Route::put('/agenda_udpate', [AgendaController::class, 'update'])->name('agenda_udpate');
+    Route::get('/agenda_publish/{id}', [AgendaController::class, 'publish'])->name('agenda_publish');
 
     // FINANCE
     Route::get('/finance', [FinanceController::class, 'index'])->name('finance');
     Route::get('/finance_create', [FinanceController::class, 'create'])->name('finance_create');
-    Route::post('/finance_create', [FinanceController::class, 'store'])->name('finance_create');
+    Route::post('/finance_store', [FinanceController::class, 'store'])->name('finance_store');
     Route::get('/finance_update', [FinanceController::class, 'edit'])->name('finance_update');
     Route::put('/finance_update', [FinanceController::class, 'update'])->name('finance_update');
 
     // REPORT
     Route::get('/report', [ReportController::class, 'index'])->name('report');
-    Route::get('/report_status', [ReportController::class, 'edit'])->name('report_status');
-    Route::post('/report_status', [ReportController::class, 'update'])->name('report_update');
+    Route::get('/report_create', [ReportController::class, 'create'])->name('report_create');
+    Route::post('/report_store', [ReportController::class, 'store'])->name('report_store');
 
     // UMKM
     Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm');
     Route::get('/umkm_create', [UmkmController::class, 'create'])->name('umkm_create');
-    Route::post('/umkm_create', [UmkmController::class, 'store'])->name('umkm_create');
+    Route::post('/umkm_store', [UmkmController::class, 'store'])->name('umkm_store');
     Route::get('/umkm_update', [UmkmController::class, 'edit'])->name('umkm_update');
     Route::put('/umkm_update', [UmkmController::class, 'update'])->name('umkm_update');
 
     // RESIDENT
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
+    Route::get('/resident/{id}', [ResidentController::class, 'detail'])->name('resident_detail');
+    Route::get('/resident/edit/{id}', [ResidentController::class, 'edit'])->name('resident_edit');
+    Route::post('/resident/edit/{id}', [ResidentController::class, 'update'])->name('resident_update');
 
     // LAYANAN WARGA
     Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
