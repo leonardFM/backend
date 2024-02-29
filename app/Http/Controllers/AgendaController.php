@@ -16,7 +16,8 @@ class AgendaController extends Controller
 
     public function read(Request $request, $id)
     {
-        return view('admin.agenda.detail');
+        $detail = Agenda::find($id);
+        return view('admin.agenda.detail', ['detail' => $detail]);
     }
 
     public function create(Request $request)

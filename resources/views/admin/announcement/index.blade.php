@@ -26,7 +26,7 @@
                 <a href="{{ route('announcement_publish', ['id' => $a->id]) }}" class="btn btn-sm btn-primary"><i class="fas fa-fw fa-cog"></i></a>
             </td>
             <td>
-                <a href="" class="btn btn-primary">detail</a>
+                <a href="{{ route('announcement_detail', ['id' => $a->id]) }}" class="btn btn-primary">detail</a>
                 <a href="" class="btn btn-primary">edit</a>
                 <a href="" class="btn btn-primary">delete</a>
             </td>

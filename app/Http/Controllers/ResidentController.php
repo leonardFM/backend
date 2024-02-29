@@ -15,7 +15,9 @@ class ResidentController extends Controller
 
     public function detail(Request $request, $id)
     {
-        return view('admin.resident.detail', ['user' => $id]);
+        $user = User::find($id);
+        $getChild = User::where('parent_id', $id)->get();
+        return view('admin.resident.detail', ['user' => $user, 'child' => $getChild]);
     }
 
     public function edit($id)

@@ -21,7 +21,6 @@ class AnnouncementController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $a = new Announcement;
         $a->title = $request->title;
         $a->kategori = $request->kategori;
@@ -50,9 +49,10 @@ class AnnouncementController extends Controller
         return view('admin.announcement.edit-add');
     }
 
-    public function read(Request $request)
+    public function read(Request $request, $id)
     {
-        return view('admin.announcement.detail');
+        $detail = Announcement::find($id);
+        return view('admin.announcement.detail', ['detail' => $detail]);
     }
 
     public function publish($id)

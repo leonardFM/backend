@@ -29,4 +29,9 @@ class UmkmController extends Controller
 
         return redirect()->route('umkm')->with('success', 'Data berhasil disimpan.');
     }
+
+    public function read($id)
+    {
+        // 
+    }
 }
