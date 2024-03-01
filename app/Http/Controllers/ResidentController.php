@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserOffline;
 use Illuminate\Http\Request;
 
 class ResidentController extends Controller
@@ -17,7 +18,8 @@ class ResidentController extends Controller
     {
         $user = User::find($id);
         $getChild = User::where('parent_id', $id)->get();
-        return view('admin.resident.detail', ['user' => $user, 'child' => $getChild]);
+        $user_offline = UserOffline::where('parent_id', $id)->get();
+        return view('admin.resident.detail', ['user' => $user, 'child' => $getChild, 'user_offline' => $user_offline]);
     }
 
     public function edit($id)
@@ -31,5 +33,15 @@ class ResidentController extends Controller
     {
         $user = User::where('id', $id)->update($request->except('_token'));
         return redirect()->route('resident');
+    }
+
+    public function user_offline(Request $request, $id)
+    {
+        UserOffline::create([
+            'name' => $request->name,
+            'parent_id' => $id,
+        ]);
+
+        return redirect()->back();
     }
 }

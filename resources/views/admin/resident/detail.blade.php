@@ -16,8 +16,12 @@
                         <h6>Anggota Keluarga Lainnya</h6>
                         <hr>
                         <ul class="list-group list-group-flush">
-                            @foreach($child as $no => $c)
-                            <li class="list-group-item">{{ $no + 1 }} . {{ $c->name }}</li>
+                            @foreach($child as $c)
+                            <li class="list-group-item"> - {{ $c->name }}</li>
+                            @endforeach
+
+                            @foreach($user_offline as $c)
+                            <li class="list-group-item"> - {{ $c->name }} <span class="float-right">offline</span></li>
                             @endforeach
                         </ul>
                     </div>
