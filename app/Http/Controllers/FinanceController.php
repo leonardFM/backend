@@ -10,14 +10,16 @@ class FinanceController extends Controller
     public function index(Request $request)
     {
         $finance = Finance::take(10)->get();
-        $masuk = Finance::where('status', 'MASUK')->get();
-        $totalMasuk = $masuk->sum('nominal');
-        $keluar = Finance::where('status', 'KELUAR')->get();
-        $totalKeluar = $keluar->sum('nominal');
-
+        $income = Finance::where('status', 'MASUK')->get();
+        $totalMasuk = $income->sum('nominal');
+        $expense = Finance::where('status', 'KELUAR')->get();
+        $totalKeluar = $expense->sum('nominal');
+        
         $total = $totalMasuk - $totalKeluar;
         $totalFormatted = number_format($total, 2, '.', ',');
-        return view('admin.finance.index', ['finance' => $finance, 'total' => $totalFormatted]);
+
+        $params = ['finance' => $finance, 'total' => $totalFormatted, 'income' => $income, 'expense' => $expense];
+        return view('admin.finance.index', $params);
     }
 
     public function create(Request $request)
@@ -34,5 +36,11 @@ class FinanceController extends Controller
         $a->save();
 
         return redirect()->route('finance')->with('success', 'Data berhasil disimpan.');
+    }
+
+
+    public function income()
+    {
+        $income = Finance::where('status', 'MASUK')->get();
     }
 }

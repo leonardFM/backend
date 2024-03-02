@@ -67,6 +67,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/finance_store', [FinanceController::class, 'store'])->name('finance_store');
     Route::get('/finance_update', [FinanceController::class, 'edit'])->name('finance_update');
     Route::put('/finance_update', [FinanceController::class, 'update'])->name('finance_update');
+    Route::put('/finance_income', [FinanceController::class, 'income'])->name('finance_income');
+    Route::put('/finance_expense', [FinanceController::class, 'expense'])->name('finance_expense');
 
     // REPORT
     Route::get('/report', [ReportController::class, 'index'])->name('report');
@@ -85,6 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/resident/{id}', [ResidentController::class, 'detail'])->name('resident_detail');
     Route::get('/resident/edit/{id}', [ResidentController::class, 'edit'])->name('resident_edit');
     Route::post('/resident/edit/{id}', [ResidentController::class, 'update'])->name('resident_update');
+    Route::post('/resident/offline/{id}', [ResidentController::class, 'user_offline'])->name('resident_offline');
+
+    
+    
 
     // LAYANAN WARGA
     Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');

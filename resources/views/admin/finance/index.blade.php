@@ -1,46 +1,63 @@
 @extends('layouts')
 
 @section('content')
+@php 
+@endphp
     <div class="container">
-        <h2><strong>Announcement</strong></h2>
-        <hr>
-        <div class="card">
-            <div class="card-body">
-                <p>bulan JANUARI</p>
-                <hr>
-                <h5 class="card-title">Total</h5>
-                <h1 class="card-text">{{ $total }}</h1>
+        <div class="row">
+            <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    Total Uang KAS
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Total Uang KAS
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th style="width: 65%;">Title</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($finance as $a)
-                    <tr>
-                        <td>
-                            <div>
-                                <p>{{ $a->title }}</p>
-                                <h4> Rp.{{ $a->nominal }}</h4> 
-                                <span class="badge badge-success">{{ $a->status }}</span> 
-                                <span class="text-muted">Tanggal : {{ $a->created_at }}</span> 
-                            </div>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-primary btn-sm">Detail</a>
-                            <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" class="btn btn-danger btn-sm">Hapus</a>
-                        </td>
-                    </tr>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p>income</p>
+                <ul class="list-group list-group-flush">
+                    @foreach($income as $i)
+                        <li class="list-group-item">\
+                            <h5>jenis pembelian barang</h5>
+                        </li>
                     @endforeach
-                </tbody>
-            </table>
+                </ul>
+            </div>
+            <div class="col-6">
+                <p>expense</p>
+                <ul class="list-group list-group-flush">
+                    @foreach($expense as $e)
+                        <li class="list-group-item">Cras justo odio</li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 <<<<<<< HEAD
