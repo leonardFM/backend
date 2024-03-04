@@ -42,6 +42,12 @@ class ResidentController extends Controller
             'parent_id' => $id,
         ]);
 
-        return redirect()->back();
+        return redirect()->route('resident_detail', ['id' => $id]);
+    }
+
+    public function all_user(Request $request, $role = 'online')
+    {
+        $user_role = ($role == 'online') ? User::all() : UserOffline::all();
+        return view('admin.resident.all', ['user_role' => $user_role]);
     }
 }

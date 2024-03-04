@@ -21,9 +21,9 @@ use App\Http\Controllers\Api\AnnouncementController;
 */
 Route::post('/login', [LoginController::class, 'login']);
 
-
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+});
+
     Route::get('/announcement', [AnnouncementController::class, 'index']);
     Route::get('/announcement/{id}', [AnnouncementController::class, 'id']);
 
@@ -35,9 +35,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/agenda', [AgendaController::class, 'index']);
     Route::get('/agenda/{id}', [AgendaController::class, 'id']);
 
-    Route::get('/umkm', [UmkmController::class, 'index']);
     Route::get('/umkm/{id}', [UmkmController::class, 'id']);
-});
+    Route::get('/umkm', [UmkmController::class, 'index']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -1,22 +1,36 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Data warga</strong></h2>
-    <hr>
 
-    <div class="row">
-        <div class="col-4">
-            <p class="highlight text-center">jumlah kepala keluarga : {{ $count }} KK</p>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h4><strong>Data Kepala Keluarga</strong></h4>
         </div>
-        <div class="col-4">
-            <p class="highlight text-center">jumlah warga terdaftar : 80 Orang</p>
-        </div>
-        <div class="col-4">
-            <p class="highlight text-center">jumlah warga keseluruhan : 129 Orang</p>
+        <div class="col-md-6 text-md-end">
+            <a href="" class="btn btn-primary btn-sm mb-3">Tambah Baru</a>
         </div>
     </div>
-    <p><strong>Daftar Kepala Keluarga</strong></p>
-    <table>
+    <hr>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+                <a href="{{ route('resident') }}" class="btn btn-success btn-block">
+                    <p class="text-center mb-0">Jumlah Kepala Keluarga: {{ $count }} KK</p>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ route('resident_all', ['role' => 'online']) }}" class="btn btn-success btn-block">
+                    <p class="text-center mb-0">Jumlah Warga Terdaftar: 80 Orang</p>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="{{ route('resident_all', ['role' => 'offline']) }}" class="btn btn-success btn-block">
+                    <p class="text-center mb-0">Jumlah Warga Keseluruhan: 129 Orang</p>
+                </a>
+            </div>
+        </div>
+
+    <hr>
+    <table class="table table-striped table-bordered">
     <thead>
         <tr>
             <th style="width: 65%;">Title</th>

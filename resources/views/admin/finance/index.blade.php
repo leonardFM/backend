@@ -1,67 +1,70 @@
 @extends('layouts')
 
 @section('content')
-@php 
-@endphp
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h4><strong>Keuangan</strong></h4>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <a href="" class="btn btn-primary btn-sm mb-3">Tambah Baru</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Total Uang KAS
+                    <h6 class="mb-0">Laporan Uang Masuk</h6>
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                    </blockquote>
-                </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">
-                        Total Uang KAS
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <hr>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <p>income</p>
-                <ul class="list-group list-group-flush">
-                    @foreach($income as $i)
-                        <li class="list-group-item">\
-                            <h5>jenis pembelian barang</h5>
+                    <ul class="list-group list-group-flush">
+                        @foreach($income as $i)
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="mb-1"><strong>{{ $i->title }}</strong></p>
+                                    <small>{{ $i->created_at->format('M d, Y') }}</small>
+                                </div>
+                                <span><strong>Rp. {{ number_format($i->nominal, 2) }}</strong></span>
+                            </div>
                         </li>
-                    @endforeach
-                </ul>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="card-footer bg-success text-white d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0">Total Income:</h6>
+                    <h6 class="mb-0">Rp. {{ number_format($total_income, 2) }}</h6>
+                </div>
             </div>
-            <div class="col-6">
-                <p>expense</p>
-                <ul class="list-group list-group-flush">
-                    @foreach($expense as $e)
-                        <li class="list-group-item">Cras justo odio</li>
-                    @endforeach
-                </ul>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0">Laporan Uang Keluar</h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        @foreach($expense as $e)
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="mb-1"><strong>{{ $e->title }}</strong></p>
+                                    <small>{{ $e->created_at->format('M d, Y') }}</small>
+                                </div>
+                                <span><strong>Rp. {{ number_format($e->nominal, 2) }}</strong></span>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="card-footer bg-danger text-white d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0">Total Expense:</h6>
+                    <h6 class="mb-0">Rp. {{ number_format($total_expense, 2) }}</h6>
+                </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
+
+
 @endsection
-=======
-@endsection
->>>>>>> c6e81613617595eed509684e693db0c5a371fda6

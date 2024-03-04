@@ -6,11 +6,11 @@
             <h2><strong>Umkm </strong></h2>
         </div>
         <div class="col-md-6 text-md-end">
-            <a href="" class="btn btn-primary mb-3">Tambah Baru</a>
+            <a href="{{ route('umkm_create') }}" class="btn btn-primary mb-3">Tambah Baru</a>
         </div>
     </div>
     <hr>
-    <table>
+    <table class="table table-striped table-bordered">
     <thead>
         <tr>
             <th style="width: 65%;">Title</th>

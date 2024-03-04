@@ -77,6 +77,7 @@ Route::middleware(['auth'])->group(function () {
 
     // UMKM
     Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm');
+    Route::get('/umkm/{id}', [UmkmController::class, 'read'])->name('umkm_detail');
     Route::get('/umkm_create', [UmkmController::class, 'create'])->name('umkm_create');
     Route::post('/umkm_store', [UmkmController::class, 'store'])->name('umkm_store');
     Route::get('/umkm_update', [UmkmController::class, 'edit'])->name('umkm_update');
@@ -84,13 +85,12 @@ Route::middleware(['auth'])->group(function () {
 
     // RESIDENT
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');
+    Route::get('/resident/all/{role}', [ResidentController::class, 'all_user'])->name('resident_all');
     Route::get('/resident/{id}', [ResidentController::class, 'detail'])->name('resident_detail');
     Route::get('/resident/edit/{id}', [ResidentController::class, 'edit'])->name('resident_edit');
     Route::post('/resident/edit/{id}', [ResidentController::class, 'update'])->name('resident_update');
     Route::post('/resident/offline/{id}', [ResidentController::class, 'user_offline'])->name('resident_offline');
 
-    
-    
 
     // LAYANAN WARGA
     Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');

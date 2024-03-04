@@ -10,7 +10,7 @@
         <div class="col-md">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('umkm_store') }}" method="POST">
+                    <form action="{{ route('umkm_store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
@@ -31,6 +31,11 @@
                         <div class="mb-3">
                             <label for="contact" class="form-label">kontak</label>
                             <input type="text" class="form-control" id="contact" name="contact" placeholder="Masukkan kontak" aria-label="kontak" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Image</label>
+                            <input class="form-control" name="image" type="file" id="formFile">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>

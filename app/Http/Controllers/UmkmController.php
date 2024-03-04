@@ -20,18 +20,25 @@ class UmkmController extends Controller
 
     public function store(Request $request)
     {
+        // Simpan gambar
+        $path = $request->file('image')->store('umkm');
+    
+        // Buat objek Umkm baru
         $a = new Umkm;
         $a->title = $request->title;
         $a->content = $request->content;
         $a->contact = $request->contact;
-        $a->image = 'ini path image';
+        $a->image = $path;
         $a->save();
-
+    
+        // Redirect dengan pesan sukses setelah berhasil disimpan
         return redirect()->route('umkm')->with('success', 'Data berhasil disimpan.');
     }
+    
 
     public function read($id)
     {
-        // 
+        $umkmId = Umkm::find($id);
+        return view('admin.umkm.detail', ['data' => $umkmId]);
     }
 }

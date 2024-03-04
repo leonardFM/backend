@@ -5,7 +5,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    <div class="sidebar-brand-text mx-3">Tetangga</div>
 </a>
 
 <li class="nav-item">
@@ -13,6 +13,11 @@
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Menu
+</div>
 
 <li class="nav-item">
     <a class="nav-link" href="{{route('banner')}}">
@@ -52,16 +57,16 @@
     </a>
     <div id="keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Total</a>
-            <a class="collapse-item" href="buttons.html">Pemasukan</a>
-            <a class="collapse-item" href="cards.html">keluaran</a>
+            <a class="collapse-item" href="buttons.html">Laporan</a>
+            <a class="collapse-item" href="buttons.html">Iuran Warga</a>
+            <!-- <a class="collapse-item" href="cards.html">keluaran</a> -->
         </div>
     </div>
 </li>
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Menu
+    Layanan
 </div>
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pelayanan"

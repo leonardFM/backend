@@ -1,7 +1,14 @@
 @extends('layouts')
 
 @section('content')
-    <h2><strong>Announcement</strong></h2>
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h4><strong>Pengumuman</strong></h4>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <a href="" class="btn btn-primary btn-sm mb-3">Tambah Baru</a>
+        </div>
+    </div>
     <hr>
     <table class="table table-striped table-bordered">
     <thead>

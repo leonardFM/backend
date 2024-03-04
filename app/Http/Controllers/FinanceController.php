@@ -9,16 +9,28 @@ class FinanceController extends Controller
 {
     public function index(Request $request)
     {
-        $finance = Finance::take(10)->get();
+        // $finance = Finance::take(10)->get();
         $income = Finance::where('status', 'MASUK')->get();
-        $totalMasuk = $income->sum('nominal');
-        $expense = Finance::where('status', 'KELUAR')->get();
-        $totalKeluar = $expense->sum('nominal');
+        // $totalMasuk = $income->sum('nominal');
         
-        $total = $totalMasuk - $totalKeluar;
-        $totalFormatted = number_format($total, 2, '.', ',');
+        $total_income = 0;
+        foreach ($income as $i) {
+            $total_income += floatval($i->nominal);
+        }
+        $expense = Finance::where('status', 'KELUAR')->get();
 
-        $params = ['finance' => $finance, 'total' => $totalFormatted, 'income' => $income, 'expense' => $expense];
+        $total_expense = 0;
+        foreach ($expense as $i) {
+            $total_expense += floatval($i->nominal);
+        }
+
+        
+        // $totalKeluar = $expense->sum('nominal');
+        
+        // $total = $totalMasuk - $totalKeluar;
+        // $totalFormatted = number_format($total, 2, '.', ',');
+
+        $params = [ 'income' => $income, 'total_income' => $total_income, 'expense' => $expense, 'total_expense' => $total_expense];
         return view('admin.finance.index', $params);
     }
 
