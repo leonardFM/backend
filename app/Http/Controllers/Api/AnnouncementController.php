@@ -20,6 +20,6 @@ class AnnouncementController extends Controller
     public function id(Request $request, $id)
     {
         $announId = Announcement::find($id);
-        return ResponseFormatter::success(AnnouncementResource::make($announId), 'Announcement successfully fetched');
+        return ResponseFormatter::success(AnnouncementResource::make($announId), 'Announcement detail successfully fetched');
     }
 }

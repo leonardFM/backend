@@ -6,7 +6,7 @@
             <h4><strong>Agenda </strong></h4>
         </div>
         <div class="col-md-6 text-md-end">
-            <a href="" class="btn btn-primary btn-sm mb-3">Tambah Baru</a>
+            <a href="{{ route('agenda_create') }}" class="btn btn-primary btn-sm mb-3">Tambah Baru</a>
         </div>
     </div>
     <hr>
@@ -34,48 +34,15 @@
             </td>
             <td>
                 <a href="{{ route('agenda_detail', ['id' => $a->id]) }}" class="btn btn-primary">detail</a>
-                <a href="" class="btn btn-primary">edit</a>
-                <a href="" class="btn btn-primary">delete</a>
+                <a href="{{ route('agenda_update', ['id' => $a->id]) }}" class="btn btn-primary">edit</a>
+                <form action="{{ route('agenda_delete', ['id' => $a->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-primary">hapus</button>
+                </form>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<style>
-    .status {
-        background-color: #fa4b6e;
-        padding: 4px;
-        color: white;
-        font-size: 10px;
-        border-radius:5px;
-    }
-    .status {
-        background-color: #ebe6e7;
-        padding: 4px;
-        color: black;
-        font-size: 10px;
-        border-radius:5px;
-    }
-    .action {
-        text-align: right;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #f5f5f5;
-    }
-</style>
 @endsection

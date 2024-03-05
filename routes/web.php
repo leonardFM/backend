@@ -57,8 +57,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/agenda/{id}', [AgendaController::class, 'read'])->name('agenda_detail');
     Route::get('/agenda_create', [AgendaController::class, 'create'])->name('agenda_create');
     Route::post('/agenda_store', [AgendaController::class, 'store'])->name('agenda_store');
-    Route::get('/agenda_udpate', [AgendaController::class, 'edit'])->name('agenda_udpate');
-    Route::put('/agenda_udpate', [AgendaController::class, 'update'])->name('agenda_udpate');
+    Route::get('/agenda_update/{id}', [AgendaController::class, 'edit'])->name('agenda_update');
+    Route::post('/agenda_update/{id}', [AgendaController::class, 'update'])->name('agenda_update');
+    Route::delete('/agenda_delete/{id}', [AgendaController::class, 'delete'])->name('agenda_delete');
     Route::get('/agenda_publish/{id}', [AgendaController::class, 'publish'])->name('agenda_publish');
 
     // FINANCE
@@ -80,8 +81,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/umkm/{id}', [UmkmController::class, 'read'])->name('umkm_detail');
     Route::get('/umkm_create', [UmkmController::class, 'create'])->name('umkm_create');
     Route::post('/umkm_store', [UmkmController::class, 'store'])->name('umkm_store');
-    Route::get('/umkm_update', [UmkmController::class, 'edit'])->name('umkm_update');
-    Route::put('/umkm_update', [UmkmController::class, 'update'])->name('umkm_update');
+    Route::get('/umkm_update/{id}', [UmkmController::class, 'edit'])->name('umkm_update');
+    Route::post('/umkm_update/{id}', [UmkmController::class, 'update'])->name('umkm_update');
 
     // RESIDENT
     Route::get('/resident', [ResidentController::class, 'index'])->name('resident');

@@ -31,6 +31,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/finance/expense', [FinanceController::class, 'expense']);
 
     Route::get('/resident', [ResidentController::class, 'headFamily']);
+    Route::get('/resident/online', [ResidentController::class, 'allUserOnline']);
+    Route::get('/resident/offline', [ResidentController::class, 'allUserOffline']);
+    Route::get('/resident/{id}', [ResidentController::class, 'detail']);
 
     Route::get('/agenda', [AgendaController::class, 'index']);
     Route::get('/agenda/{id}', [AgendaController::class, 'id']);
