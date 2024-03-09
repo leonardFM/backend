@@ -57,16 +57,15 @@
     </a>
     <div id="keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Laporan</a>
-            <a class="collapse-item" href="buttons.html">Iuran Warga</a>
-            <!-- <a class="collapse-item" href="cards.html">keluaran</a> -->
+            <a class="collapse-item" href="{{ route('finance') }}">Laporan</a>
+            <a class="collapse-item" href="{{ route('iuran') }}">Iuran Warga</a>
         </div>
     </div>
 </li>
 
 <!-- Heading -->
 <div class="sidebar-heading">
-    Layanan
+    Layanan Warga
 </div>
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pelayanan"
@@ -92,7 +91,7 @@
     </a>
     <div id="report" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Masalah</a>
+            <a class="collapse-item" href="{{ route('report') }}">Masalah</a>
             <a class="collapse-item" href="cards.html">Dikerjakan</a>
             <a class="collapse-item" href="cards.html">Selesai</a>
         </div>

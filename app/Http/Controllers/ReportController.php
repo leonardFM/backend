@@ -14,9 +14,23 @@ class ReportController extends Controller
         return view('admin.report.index', ['report' => $report]);
     }
 
+    public function detail(Request $request, $id)
+    {
+        $reportId = Report::find($id);
+        return view('admin.report.detail', ['detail' => $reportId]);
+    }
+
     public function create(Request $request)
     {
         return view('admin.report.edit-add');
+    }
+
+    public function status(Request $request, $id, $status = 'MASUK')
+    {
+        $data = Report::find($id);
+        $data->status = $status;
+        $data->save();
+        return redirect()->back();
     }
 
     public function store(Request $request)

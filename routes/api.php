@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UmkmController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\AgendaController;
+use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\FinanceController;
 use App\Http\Controllers\Api\ResidentController;
 use App\Http\Controllers\Api\AnnouncementController;
@@ -40,6 +41,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     Route::get('/umkm/{id}', [UmkmController::class, 'id']);
     Route::get('/umkm', [UmkmController::class, 'index']);
+
+    Route::get('/report', [ReportController::class, 'index']);
+    Route::get('/report/{id}', [ReportController::class, 'detail']);
+    Route::post('/report_store', [ReportController::class, 'store']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

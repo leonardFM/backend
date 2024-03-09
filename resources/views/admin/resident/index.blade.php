@@ -34,7 +34,7 @@
     <thead>
         <tr>
             <th style="width: 65%;">Title</th>
-            <th>Action</th>
+            <th style="width: 19%;">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -50,9 +50,21 @@
                 </div>
             </td>
             <td>
-                <a href="{{ route('resident_detail', ['id' => $u->id ]) }}" class="btn btn-primary">detail</a>
-                <a href="{{ route('resident_edit', ['id' => $u->id ]) }}" class="btn btn-primary">edit</a>
-                <a href="" class="btn btn-primary">hapus</a>
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ route('resident_detail', ['id' => $u->id]) }}" class="btn btn-primary"><i class="fab fa-readme"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ route('resident_edit', ['id' => $u->id]) }}" class="btn btn-success"><i class="fas fa-pencil-alt"></i></a>
+                    </div>
+                    <div class="col">
+                        <form action="{{ route('agenda_delete', ['id' => $u->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </div>
+                </div>
             </td>
         </tr>
         @endforeach

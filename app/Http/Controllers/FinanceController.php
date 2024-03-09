@@ -9,9 +9,7 @@ class FinanceController extends Controller
 {
     public function index(Request $request)
     {
-        // $finance = Finance::take(10)->get();
         $income = Finance::where('status', 'MASUK')->get();
-        // $totalMasuk = $income->sum('nominal');
         
         $total_income = 0;
         foreach ($income as $i) {
@@ -23,12 +21,6 @@ class FinanceController extends Controller
         foreach ($expense as $i) {
             $total_expense += floatval($i->nominal);
         }
-
-        
-        // $totalKeluar = $expense->sum('nominal');
-        
-        // $total = $totalMasuk - $totalKeluar;
-        // $totalFormatted = number_format($total, 2, '.', ',');
 
         $params = [ 'income' => $income, 'total_income' => $total_income, 'expense' => $expense, 'total_expense' => $total_expense];
         return view('admin.finance.index', $params);
@@ -50,9 +42,13 @@ class FinanceController extends Controller
         return redirect()->route('finance')->with('success', 'Data berhasil disimpan.');
     }
 
-
     public function income()
     {
         $income = Finance::where('status', 'MASUK')->get();
+    }
+
+    public function iuran()
+    {
+        return view('admin.finance.iuran');
     }
 }

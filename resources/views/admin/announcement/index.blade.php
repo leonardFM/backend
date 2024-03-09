@@ -15,7 +15,7 @@
         <tr>
             <th style="width: 70%;">Title</th>
             <th>status</th>
-            <th class="text-center">Action</th>
+            <th style="width: 19%;" class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +33,21 @@
                 <a href="{{ route('announcement_publish', ['id' => $a->id]) }}" class="btn btn-sm btn-primary"><i class="fas fa-fw fa-cog"></i></a>
             </td>
             <td>
-                <a href="{{ route('announcement_detail', ['id' => $a->id]) }}" class="btn btn-primary">detail</a>
-                <a href="" class="btn btn-primary">edit</a>
-                <a href="" class="btn btn-primary">delete</a>
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ route('announcement_detail', ['id' => $a->id]) }}" class="btn btn-primary"><i class="fab fa-readme"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ route('agenda_update', ['id' => $a->id]) }}" class="btn btn-success"><i class="fas fa-pencil-alt"></i></a>
+                    </div>
+                    <div class="col">
+                        <form action="{{ route('agenda_delete', ['id' => $a->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </div>
+                </div>
             </td>
         </tr>
         @endforeach

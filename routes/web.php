@@ -64,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
 
     // FINANCE
     Route::get('/finance', [FinanceController::class, 'index'])->name('finance');
+    Route::get('/iuran', [FinanceController::class, 'iuran'])->name('iuran');
     Route::get('/finance_create', [FinanceController::class, 'create'])->name('finance_create');
     Route::post('/finance_store', [FinanceController::class, 'store'])->name('finance_store');
     Route::get('/finance_update', [FinanceController::class, 'edit'])->name('finance_update');
@@ -73,8 +74,10 @@ Route::middleware(['auth'])->group(function () {
 
     // REPORT
     Route::get('/report', [ReportController::class, 'index'])->name('report');
+    Route::get('/report/{id}', [ReportController::class, 'detail'])->name('report_detail');
     Route::get('/report_create', [ReportController::class, 'create'])->name('report_create');
     Route::post('/report_store', [ReportController::class, 'store'])->name('report_store');
+    Route::get('/report_status/{id}/{status}', [ReportController::class, 'status'])->name('report_status');
 
     // UMKM
     Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm');
