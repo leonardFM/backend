@@ -16,8 +16,6 @@ class MenuResource extends Resource
     protected static ?string $model = Menu::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Umkm & jasa Management'; 
-
 
     public static function form(Form $form): Form
     {
@@ -52,8 +50,8 @@ class MenuResource extends Resource
                         'Habis' => 'Habis',
                     ])
                     ->default('Tersedia'),
-                Forms\Components\FileUpload::make('image')
-                    ->label('Image')
+                Forms\Components\TextInput::make('foto_menu')
+                    ->label('Foto Menu (URL)')
                     ->nullable(),
             ]);
     }
