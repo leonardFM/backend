@@ -43,8 +43,7 @@ class AnnouncementResource extends Resource
                     
                     RichEditor::make('description')
                         ->label('Description')
-                        ->required()
-                        ->maxLength(500),
+                        ->required(),
 
                     DatePicker::make('tanggal')
                         ->label('Date')

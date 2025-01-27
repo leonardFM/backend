@@ -34,7 +34,7 @@ class UmkmResource extends Resource
                     ->required()
                     ->maxLength(255),
                 
-                Forms\Components\TextInput::make('deskripsi')
+                Forms\Components\RichEditor::make('deskripsi')
                     ->label('Deskripsi')
                     ->required()
                     ->maxLength(255),

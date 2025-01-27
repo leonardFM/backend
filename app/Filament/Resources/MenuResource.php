@@ -16,6 +16,8 @@ class MenuResource extends Resource
     protected static ?string $model = Menu::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Umkm & jasa Management'; 
+
 
     public static function form(Form $form): Form
     {
@@ -28,7 +30,7 @@ class MenuResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Nama Menu')
                     ->required(),
-                Forms\Components\Textarea::make('deskripsi')
+                Forms\Components\RichEditor::make('deskripsi')
                     ->label('Deskripsi Menu')
                     ->nullable(),
                 Forms\Components\TextInput::make('harga')

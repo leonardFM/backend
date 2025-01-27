@@ -39,8 +39,7 @@ class EventResource extends Resource
 
                             Forms\Components\RichEditor::make('description')
                                 ->label('Description')
-                                ->required()
-                                ->maxLength(500),
+                                ->required(),
 
                             Forms\Components\FileUpload::make('image')
                                 ->label('Image')

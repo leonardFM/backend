@@ -49,9 +49,7 @@ class AgendaResource extends Resource
 
                 RichEditor::make('description')
                     ->label('Description')
-                    ->required()
-                    ->maxLength(500),
-
+                    ->required(),
                 ]),
             ]);
     }
