@@ -1,0 +1,38 @@
+# Gunakan image PHP dengan FPM dan ekstensi yang diperlukan
+FROM php:8.3-fpm
+
+# Install dependensi yang diperlukan untuk Laravel
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    zip \
+    git \
+    libzip-dev \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install gd zip pdo pdo_mysql
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Set Working Directory
+WORKDIR /var/www
+
+# Salin semua file dari proyek Laravel ke container
+COPY . .
+
+# Install dependensi PHP (Composer)
+RUN composer install --no-interaction --prefer-dist
+
+# Set izin untuk folder storage dan bootstrap/cache
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+
+# Set environment variable
+ENV APP_ENV=local
+ENV APP_KEY=base64:YOUR_APP_KEY
+
+# Expose port 9000 untuk PHP-FPM
+EXPOSE 9000
+
+# Jalankan PHP-FPM
+CMD ["php-fpm"]
