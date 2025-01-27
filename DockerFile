@@ -1,6 +1,10 @@
 # Gunakan image PHP dengan FPM dan ekstensi yang diperlukan
 FROM php:8.3-fpm
 
+# Definisikan Grup dan Pengguna yang valid
+ENV WWWGROUP=1000
+ENV WWWUSER=www-data
+
 # Install dependensi yang diperlukan untuk Laravel
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -12,20 +16,23 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure zip \
     && docker-php-ext-install gd zip pdo pdo_mysql
 
-# Install Composer
+# Install Composer (menggunakan image composer resmi)
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Set Working Directory
 WORKDIR /var/www
 
-# Salin semua file dari proyek Laravel ke container
-COPY . .
+# Salin file composer.json dan composer.lock terlebih dahulu untuk memanfaatkan cache Docker
+COPY composer.json composer.lock ./
 
 # Install dependensi PHP (Composer)
 RUN composer install --no-interaction --prefer-dist
 
+# Salin semua file dari proyek Laravel ke container
+COPY . .
+
 # Set izin untuk folder storage dan bootstrap/cache
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN chown -R $WWWUSER:$WWWGROUP /var/www/storage /var/www/bootstrap/cache
 
 # Set environment variable
 ENV APP_ENV=local
