@@ -34,19 +34,18 @@ class UserResource extends Resource
 
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required()
                     ->maxLength(255)
-                    ->dehydrated(fn ($state) => ! empty($state)),
+                    ->nullable()
+                    ->dehydrated(fn ($state) => filled($state)),
 
                 Forms\Components\Select::make('parent')
                     ->label('Parent User')
-                    ->relationship('parent', 'name') // Assumes a relationship in the User model
+                    ->relationship('parent', 'name') 
                     ->searchable()
                     ->placeholder('Select Parent User')
                     ->options(User::whereNull('parent_id')->pluck('name', 'id')),
 
                 Forms\Components\Select::make('status')
-                    ->required()
                     ->options([
                         'active' => 'Active',
                         'blocked' => 'Blocked',
@@ -71,6 +70,7 @@ class UserResource extends Resource
                 Forms\Components\Select::make('role')
                     ->options([
                         'warga' => 'Warga',
+                        'pengurus' => 'Pengurus',
                         'ketua' => 'Ketua',
                         'admin' => 'Admin',
                     ]),
@@ -89,14 +89,16 @@ class UserResource extends Resource
                 Forms\Components\DatePicker::make('tanggal_masuk'),
 
                 Forms\Components\Toggle::make('aktif')
-                    ->default(true),
+                    ->default(false),
 
                 Forms\Components\TextInput::make('emergency_contact')
                     ->maxLength(15),
 
-                Forms\Components\TextInput::make('foto_profil')
-                    ->url()
-                    ->maxLength(255),
+                Forms\Components\FileUpload::make('foto_profil')
+                    ->label('Foto Profil')
+                    ->image()
+                    ->maxSize(1024) // Maksimal 1MB
+                    ->directory('profile-photos'),
             ]);
     
     }
@@ -108,8 +110,6 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('email')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('status')->sortable(),
-                Tables\Columns\TextColumn::make('rt'),
-                Tables\Columns\TextColumn::make('rw'),
                 Tables\Columns\TextColumn::make('role')->sortable(),
             ])
             ->filters([

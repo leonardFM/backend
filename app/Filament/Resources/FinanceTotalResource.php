@@ -18,6 +18,8 @@ class FinanceTotalResource extends Resource
     protected static ?string $model = FinanceTotal::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Finance Management';
+
 
     public static function form(Form $form): Form
     {

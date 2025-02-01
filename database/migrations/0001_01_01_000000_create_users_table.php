@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->default('123456');
             $table->string('status')->default('blocked');
             
             // Kolom tambahan untuk sistem RT/RW
